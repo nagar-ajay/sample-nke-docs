@@ -1,6 +1,6 @@
 # Base configuration
 ##########################################################
-baseURL = "https://nagar-ajay.github.io/sample-nke-docs"
+baseURL = "https://nagar-ajay.github.io/sample-nke-docs/test-version"
 title = "Kubeflow on NKE"
 description = "Open-source machine learning platform running on NKE"
 
