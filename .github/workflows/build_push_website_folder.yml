@@ -34,7 +34,7 @@ jobs:
 
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "VERSION_NAME=$(echo ${GITHUB_REF#refs/heads/} | sed 's/release//;s/-//' | sed 's/main/dev/' | sed 's/v1.7/./')" >> $GITHUB_OUTPUT
         id: extract_branch
 
       - name: Run a multi-line script
@@ -48,5 +48,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/public
-          destination_dir: ${{ steps.extract_branch.outputs.branch }}
+          destination_dir: ${{ steps.extract_branch.outputs.version_name }}
           keep_files: true %
